@@ -15,7 +15,7 @@ public class PlayerMove : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        Vector2 currentVelocity = gameObject.GetComponent<Rigidbody2D>().velocity;
+        Vector3 currentVelocity = gameObject.GetComponent<Rigidbody2D>().velocity;
 
         float newVelocityX = 0f;
         if (moveHorizontal < 0 && currentVelocity.x <= 0)

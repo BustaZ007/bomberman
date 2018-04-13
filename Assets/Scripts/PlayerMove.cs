@@ -9,45 +9,50 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private GameObject bomb;
 
-    void FixedUpdate()
+	private void Update()
+	{
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            if(bomb)
+            {
+                Instantiate(bomb, new Vector2(Mathf.RoundToInt(transform.position.x),
+                                              Mathf.RoundToInt(transform.position.y)),
+                                              bomb.transform.rotation);
+            }
+        }
+	}
+	void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        Vector3 currentVelocity = gameObject.GetComponent<Rigidbody2D>().velocity;
-
-        float newVelocityX = 0f;
-        if (moveHorizontal < 0 && currentVelocity.x <= 0)
+        if (moveHorizontal < 0)
         {
-            newVelocityX = -speed;
+            transform.Translate(Vector2.left * Time.deltaTime*speed, Space.Self);
             animator.SetInteger("DirectionX", -1);
         }
-        else if (moveHorizontal > 0 && currentVelocity.x >= 0)
+        else if (moveHorizontal > 0)
         {
-            newVelocityX = speed;
+            transform.Translate(Vector2.right * Time.deltaTime * speed);
             animator.SetInteger("DirectionX", 1);
         }
         else
-        {
             animator.SetInteger("DirectionX", 0);
-        }
-        float newVelocityY = 0f;
-        if (moveVertical < 0 && currentVelocity.y <= 0)
+        
+        if (moveVertical < 0)
         {
-            newVelocityY = -speed;
+            transform.Translate(Vector2.down * Time.deltaTime * speed, Space.Self);
             animator.SetInteger("DirectionY", -1);
         }
-        else if (moveVertical > 0 && currentVelocity.y >= 0)
+        else if (moveVertical > 0)
         {
-            newVelocityY = speed;
+            transform.Translate(Vector2.up * Time.deltaTime * speed, Space.Self);
             animator.SetInteger("DirectionY", 1);
         }
         else
-        {
             animator.SetInteger("DirectionY", 0);
-        }
-
-        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(newVelocityX, newVelocityY);
     }
 }

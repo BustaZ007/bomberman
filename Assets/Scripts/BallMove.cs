@@ -5,17 +5,14 @@ using UnityEngine;
 public class BallMove : MonoBehaviour {
 
     [SerializeField]
-    public float speed;
-    [SerializeField]
-    private Animator animator;
-    private bool flag;
-	// Use this for initialization
+    float speed;
+    Animator animator;
+
 	void Start () 
     {
-        flag = true;
+        animator = this.GetComponent<Animator>();
 	}
-	
-	// Update is called once per frame
+
 	void Update () 
     {
         transform.Translate(Vector2.right * Time.deltaTime * speed, Space.Self);
@@ -25,12 +22,11 @@ public class BallMove : MonoBehaviour {
 	{
         if (collision.tag == "Wall" || collision.tag == "Block")
         {
-			speed = -speed;
-			//flip();
+            speed = -speed;
+            if(speed < 0)
+			    animator.SetInteger("flag", -1);
+            else
+                animator.SetInteger("flag", 1);
         }
 	}
-    void flip()
-    {
-        animator.GetBool("false");
-    }
 }

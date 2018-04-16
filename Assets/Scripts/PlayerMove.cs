@@ -4,26 +4,29 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    [SerializeField]
-    private float speed;
-
-    [SerializeField]
-    private Animator animator;
-    [SerializeField]
-    private GameObject bomb;
-
+    public float Speed;
+    public int MaxBombs;
+    public Animator animator;
+    public GameObject Bomb;
+    int count = 1;
 	private void Update()
 	{
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            if(bomb)
+            if(Bomb && count <= MaxBombs)
             {
-                Instantiate(bomb, new Vector2(Mathf.RoundToInt(transform.position.x),
+                count++;
+                Instantiate(Bomb, new Vector2(Mathf.RoundToInt(transform.position.x),
                                               Mathf.RoundToInt(transform.position.y)),
-                                              bomb.transform.rotation);
+                                              Bomb.transform.rotation);
+                Invoke("FectBoom", 3.0f);
             }
         }
 	}
+    void FectBoom()
+    {
+        count--;
+    }
 	void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -31,12 +34,12 @@ public class PlayerMove : MonoBehaviour
 
         if (moveHorizontal < 0)
         {
-            transform.Translate(Vector2.left * Time.deltaTime*speed, Space.Self);
+            transform.Translate(Vector2.left * Time.deltaTime*Speed, Space.Self);
             animator.SetInteger("DirectionX", -1);
         }
         else if (moveHorizontal > 0)
         {
-            transform.Translate(Vector2.right * Time.deltaTime * speed);
+            transform.Translate(Vector2.right * Time.deltaTime * Speed);
             animator.SetInteger("DirectionX", 1);
         }
         else
@@ -44,12 +47,12 @@ public class PlayerMove : MonoBehaviour
         
         if (moveVertical < 0)
         {
-            transform.Translate(Vector2.down * Time.deltaTime * speed, Space.Self);
+            transform.Translate(Vector2.down * Time.deltaTime * Speed, Space.Self);
             animator.SetInteger("DirectionY", -1);
         }
         else if (moveVertical > 0)
         {
-            transform.Translate(Vector2.up * Time.deltaTime * speed, Space.Self);
+            transform.Translate(Vector2.up * Time.deltaTime * Speed, Space.Self);
             animator.SetInteger("DirectionY", 1);
         }
         else

@@ -78,7 +78,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1023255005112890}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -125,7 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b62af053f988342a88a31eb09a0d5d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1001451609051468, guid: a3e5309dd461e4dcf89e7766fdbf144d, type: 2}
+  FireCenter: {fileID: 1691869561079870, guid: fb562c5887dbf4f1c90437c97bfffa2f, type: 2}
+  FireCryUp: {fileID: 1376231614089944, guid: d9e125e68c1a646cba4402b31e9bb288, type: 2}
+  FireUp: {fileID: 0}
 --- !u!212 &212078854086117000
 SpriteRenderer:
   m_ObjectHideFlags: 1

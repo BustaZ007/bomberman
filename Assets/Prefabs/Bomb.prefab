@@ -128,6 +128,9 @@ MonoBehaviour:
   FireCenter: {fileID: 1691869561079870, guid: fb562c5887dbf4f1c90437c97bfffa2f, type: 2}
   FireCryUp: {fileID: 1376231614089944, guid: d9e125e68c1a646cba4402b31e9bb288, type: 2}
   FireUp: {fileID: 0}
+  FireCryDown: {fileID: 1333819858449998, guid: 865014bbb2a5942c5bfe275cc6d28e0c,
+    type: 2}
+  FireDown: {fileID: 0}
 --- !u!212 &212078854086117000
 SpriteRenderer:
   m_ObjectHideFlags: 1

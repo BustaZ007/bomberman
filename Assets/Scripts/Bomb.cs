@@ -7,6 +7,8 @@ public class Bomb : MonoBehaviour {
     public GameObject FireCenter;
     public GameObject FireCryUp;
     public GameObject FireUp;
+    public GameObject FireCryDown;
+    public GameObject FireDown;
     int g = 2;
 	void Start ()
     {
@@ -21,18 +23,33 @@ public class Bomb : MonoBehaviour {
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         for (int i = 1; i < g; i++)
         {
-            var coll = Physics2D.OverlapPoint(transform.position + Vector3.up).tag;
+            var coll = Physics2D.OverlapPoint(transform.position + new Vector3(0,i,0)).tag;
             if (coll == "Block")
                 break;
                 
             if(i == g-1 || coll == "Wall")
             {
-				Instantiate(FireCryUp, new Vector2(transform.position.x, transform.position.y + i),
+                Instantiate(FireCryUp, transform.position + new Vector3(0, i, 0),
 				            FireCryUp.transform.rotation);
                 break;
             }
-            Instantiate(FireUp, new Vector2(transform.position.x, transform.position.y + i),
+            Instantiate(FireUp,transform.position + new Vector3(0, i, 0),
                             FireUp.transform.rotation);
+        }
+        for (int i = 1; i < g; i++)
+        {
+            var coll = Physics2D.OverlapPoint(transform.position + new Vector3(0, -i, 0)).tag;
+            if (coll == "Block")
+                break;
+
+            if (i == g - 1 || coll == "Wall")
+            {
+                Instantiate(FireCryDown, transform.position + new Vector3(0, i, 0),
+                            FireCryDown.transform.rotation);
+                break;
+            }
+            Instantiate(FireDown, transform.position + new Vector3(0, i, 0),
+                        FireDown.transform.rotation);
         }
         Destroy(gameObject, 0.3f);
     }

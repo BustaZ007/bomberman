@@ -6,9 +6,9 @@ public class Bomb : MonoBehaviour {
     
     public GameObject FireCenter;
     public GameObject FireCryUp;
-    public GameObject FireUp;
+    public GameObject FireUpDown;
     public GameObject FireCryDown;
-    public GameObject FireDown;
+    public GameObject FireLeftRight;
     public GameObject FireCryLeft;
     public GameObject FireCryRight;
     int g = 4;
@@ -23,32 +23,40 @@ public class Bomb : MonoBehaviour {
                     FireCenter.transform.rotation);
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        Collider2D[] colDown = Physics2D.OverlapCircleAll(transform.position - transform.up, 0.2f);
-        Collider2D[] colLeft = Physics2D.OverlapCircleAll(transform.position - transform.right, 0.2f);
-        Collider2D[] colRight = Physics2D.OverlapCircleAll(transform.position + transform.right, 0.2f);
+        MakeFire(FireCryUp, FireUpDown, Vector3.up);
+        MakeFire(FireCryDown, FireUpDown, Vector3.down);
+        MakeFire(FireCryLeft, FireLeftRight, Vector3.left);
+        MakeFire(FireCryRight, FireLeftRight, Vector3.right);
+        Destroy(gameObject, 0.3f);
+    }
+    void MakeFire(GameObject fire1, GameObject fire2, Vector3 vector)
+    {
         for (int i = 1; i < g; i++)
         {
 
-            Collider2D[] colUp = Physics2D.OverlapCircleAll(transform.position +
-                                                            new Vector3(0,i,0), 0.2f);
-            if(colUp.Length == 0)
+            Collider2D[] col = Physics2D.OverlapCircleAll(transform.position +
+                                                            vector * i, 0.2f);
+            if(col.Length == 0 && i == (g - 1))
             {
-				Instantiate(FireCryUp, new Vector2(transform.position.x,
-				                                   transform.position.y + i),
-				            FireCryUp.transform.rotation);
-                continue;
-            }
-            if (colUp[0].tag == "Block")
-                break;
-            if (colUp[0].tag == "Wall" || colUp[0].tag == "Monster"|| i == g - 1)
-            {
-                Instantiate(FireCryUp,new Vector2(transform.position.x,
-                                                  transform.position.y + i),
-                            FireCryUp.transform.rotation);
+                Instantiate(fire1, transform.position + vector * i,
+                            fire1.transform.rotation);
                 break;
             }
+			if (col.Length == 0 || col[0].tag == "Player")
+			{
+				Instantiate(fire2, transform.position + vector * i,
+				            fire2.transform.rotation);
+				continue;
+			}
+            if (col[0].tag == "Wall" || col[0].tag == "Monster")
+            {
+                Instantiate(fire1, transform.position + vector * i,
+                            fire1.transform.rotation);
+                break;
+            }
+            if (col[0].tag == "Block")
+                break;
         }
-        Destroy(gameObject, 0.3f);
     }
     void WakeUp()
     {

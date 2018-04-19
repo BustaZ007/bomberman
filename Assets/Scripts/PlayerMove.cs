@@ -6,7 +6,8 @@ public class PlayerMove : MonoBehaviour
 {
     public float Speed;
     public int MaxBombs;
-    public Animator animator;
+    [SerializeField]
+    Animator animator;
     public GameObject Bomb;
     int count = 1;
 	private void Update()
@@ -23,9 +24,17 @@ public class PlayerMove : MonoBehaviour
             }
         }
 	}
+
     void FectBoom()
     {
         count--;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Fire")
+        {
+            Destroy(gameObject, 1.0f);
+        }
     }
 	void FixedUpdate()
     {

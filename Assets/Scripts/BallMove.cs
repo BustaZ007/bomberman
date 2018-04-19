@@ -28,13 +28,20 @@ public class BallMove : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
 	{
-        if (collision.tag == "Wall" || collision.tag == "Block")
+        if (collision.tag == "Wall" || collision.tag == "Block" || collision.tag == "Bomb")
         {
             speed = -speed;
             if(speed < 0)
 			    animator.SetInteger("flag", -1);
             else
                 animator.SetInteger("flag", 1);
+        }
+        if(collision.tag == "Fire")
+        {
+            animator.SetInteger("flag", 2);
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            speed = 0;
+            Destroy(gameObject, 1.0f);
         }
 	}
 }

@@ -1,12 +1,13 @@
 fileFormatVersion: 2
-guid: 426eb3267e6ac4b58bc1d8d073321850
-timeCreated: 1522325373
+guid: a26037fe7ebc9476b87a45d38dd37368
+timeCreated: 1523875727
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: death_0
-    21300002: death_1
-    21300004: death_2
+    21300000: FireCryLeft_0
+    21300002: FireCryLeft_1
+    21300004: FireCryLeft_2
+    21300006: FireCryLeft_3
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -84,13 +85,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: death_0
+      name: FireCryLeft_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 8
-        height: 11
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -98,13 +99,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: death_1
+      name: FireCryLeft_1
       rect:
         serializedVersion: 2
-        x: 10
+        x: 16
         y: 0
-        width: 6
-        height: 11
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,13 +113,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: death_2
+      name: FireCryLeft_2
       rect:
         serializedVersion: 2
-        x: 18
+        x: 32
         y: 0
-        width: 8
-        height: 11
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: FireCryLeft_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

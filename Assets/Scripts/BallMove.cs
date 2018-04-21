@@ -8,6 +8,7 @@ public class BallMove : MonoBehaviour {
     float speed;
     Animator animator;
     bool isBusy;
+    public GameObject player;
 
 	void Start () 
     {

@@ -11,7 +11,7 @@ public class Bomb : MonoBehaviour {
     public GameObject FireLeftRight;
     public GameObject FireCryLeft;
     public GameObject FireCryRight;
-    int g = 4;
+    int g = 2;
 	void Start ()
     {
         Invoke("WakeUp", .5f);

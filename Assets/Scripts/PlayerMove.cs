@@ -6,11 +6,14 @@ public class PlayerMove : MonoBehaviour
 {
     public float Speed;
     public int MaxBombs;
-    [SerializeField]
     Animator animator;
     public GameObject Bomb;
     int count = 1;
-	private void Update()
+	private void Start()
+	{
+        animator = gameObject.GetComponent<Animator>();
+	}
+	void Update()
 	{
         if(Input.GetKeyDown(KeyCode.Space))
         {
@@ -33,6 +36,16 @@ public class PlayerMove : MonoBehaviour
     {
         if (collision.tag == "Fire")
         {
+            Speed = 0;
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            animator.SetBool("Die", true);
+            Destroy(gameObject, 1.0f);
+        }
+        if (collision.tag == "Monster")
+        {
+			Speed = 0;
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            animator.SetBool("Die", true);
             Destroy(gameObject, 1.0f);
         }
     }

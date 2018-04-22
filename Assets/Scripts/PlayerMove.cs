@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -32,6 +33,15 @@ public class PlayerMove : MonoBehaviour
     {
         count--;
     }
+    void GameOver()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
+    void Die()
+    {
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Fire")
@@ -39,14 +49,16 @@ public class PlayerMove : MonoBehaviour
             Speed = 0;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             animator.SetBool("Die", true);
-            Destroy(gameObject, 1.0f);
+			Invoke("GameOver", 2.0f);
+            Invoke("Die", 1.0f);
         }
         if (collision.tag == "Monster")
         {
 			Speed = 0;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             animator.SetBool("Die", true);
-            Destroy(gameObject, 1.0f);
+            Invoke("GameOver", 2.0f);
+            Invoke("Die", 1.0f);
         }
     }
 	void FixedUpdate()

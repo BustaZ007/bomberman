@@ -16,16 +16,6 @@ public class FireScript : MonoBehaviour {
 	{
         Destroy(gameObject);
 	}
-
-    void Die()
-    {
-		gameObject.GetComponent<SpriteRenderer>().enabled = false;
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Monster" || collision.tag == "Wall")
-            Invoke("Die", 0.2f);
-	}
 	void Update ()
     {
 		

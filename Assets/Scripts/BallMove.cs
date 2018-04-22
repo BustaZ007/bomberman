@@ -7,29 +7,63 @@ public class BallMove : MonoBehaviour {
     [SerializeField]
     float speed;
     Animator animator;
-    bool isBusy;
     public GameObject player;
+    bool move;
+    int count = 0;
 
 	void Start () 
     {
-        animator = this.GetComponent<Animator>();
+        animator = gameObject.GetComponent<Animator>();
+        move = true;
 	}
 
 	void Update () 
     {
-        
-        Collider2D [] colUp = Physics2D.OverlapCircleAll(transform.position + transform.up , 0.2f);
-        Collider2D[] colDown = Physics2D.OverlapCircleAll(transform.position - transform.up , 0.2f);
-        if (colUp.Length > 0 && colDown.Length > 0 )
-            transform.Translate(Vector2.right * Time.deltaTime * speed, Space.Self);
-        else
-            transform.Translate(Vector2.down * Time.deltaTime * speed, Space.Self);
+        Collider2D[] colLeft = Physics2D.OverlapCircleAll(transform.position - transform.right, 0.487f);
+        Collider2D[] colRight = Physics2D.OverlapCircleAll(transform.position + transform.right, 0.487f);
+        Collider2D [] colUp = Physics2D.OverlapCircleAll(transform.position + transform.up , 0.487f);
+        Collider2D[] colDown = Physics2D.OverlapCircleAll(transform.position - transform.up , 0.487f);
 
+        if(move)
+            if (colUp.Length == 0 || colDown.Length == 0)
+            {
+                if(count == 4)
+                {
+    				transform.Translate(Vector2.down * Time.deltaTime * speed, Space.Self);
+                    count = 0;
+                    move = false;
+                }
+                else
+                {
+    				count++;
+    				transform.Translate(Vector2.right * Time.deltaTime * speed, Space.Self);
+                }
+            }
+            else
+                transform.Translate(Vector2.right * Time.deltaTime * speed, Space.Self);
+        else
+            if (colLeft.Length == 0 || colRight.Length == 0)
+            {
+                if (count == 4)
+                {
+                    transform.Translate(Vector2.right * Time.deltaTime * speed, Space.Self);
+                    count = 0;
+                    move = true;
+                }
+                else
+                {
+    				count++;
+    				transform.Translate(Vector2.down * Time.deltaTime * speed, Space.Self);
+                }
+            }
+            else
+                transform.Translate(Vector2.down * Time.deltaTime * speed, Space.Self);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
 	{
-        if (collision.tag == "Wall" || collision.tag == "Block" || collision.tag == "Bomb")
+        if (collision.tag == "Wall" || collision.tag == "Block" ||
+            collision.tag == "Bomb")
         {
             speed = -speed;
             if(speed < 0)
@@ -39,9 +73,9 @@ public class BallMove : MonoBehaviour {
         }
         if(collision.tag == "Fire")
         {
-            animator.SetInteger("flag", 2);
+			speed = 0;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            speed = 0;
+            animator.SetInteger("flag", 2);
             Destroy(gameObject, 1.0f);
         }
 	}

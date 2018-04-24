@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class FireScript : MonoBehaviour {
 
-	void Start () {
+	void Start ()
+    {
         Invoke("OffDamage", 0.7f);
         Invoke("Destroing", 1.0f);
 	}
@@ -12,7 +13,7 @@ public class FireScript : MonoBehaviour {
     {
         gameObject.GetComponent<CircleCollider2D>().enabled = false; 
     }
-	private void Destroing()
+	void Destroing()
 	{
         Destroy(gameObject);
 	}

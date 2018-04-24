@@ -24,7 +24,7 @@ public class PlayerMove : MonoBehaviour
                 Instantiate(Bomb, new Vector2(Mathf.RoundToInt(transform.position.x),
                                               Mathf.RoundToInt(transform.position.y)),
                                               Bomb.transform.rotation);
-                Invoke("FectBoom", 3.0f);
+                Invoke("FectBoom", 2.5f);
             }
         }
 	}

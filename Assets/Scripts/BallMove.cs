@@ -63,7 +63,7 @@ public class BallMove : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collision)
 	{
         if (collision.tag == "Wall" || collision.tag == "Block" ||
-            collision.tag == "Bomb")
+            collision.tag == "Bomb"  || collision.tag == "Monster")
         {
             speed = -speed;
             if(speed < 0)

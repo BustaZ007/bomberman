@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallScript : MonoBehaviour {
+public class WallScript : MonoBehaviour
+{
 
-    // Use this for initialization
     Animator animator;
 	void Start ()
     {
@@ -18,7 +18,6 @@ public class WallScript : MonoBehaviour {
             Destroy(gameObject, 0.85f);
         }
     }
-	// Update is called once per frame
 	void Update ()
     {
 	}

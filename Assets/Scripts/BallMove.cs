@@ -78,7 +78,7 @@ public class BallMove : MonoBehaviour {
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
             animator.SetInteger("flag", 2);
-            Destroy(gameObject, 3f);
+            Destroy(gameObject, 4f);
         }
 	}
 }

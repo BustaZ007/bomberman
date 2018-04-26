@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BallMove : MonoBehaviour {
 
@@ -75,8 +76,9 @@ public class BallMove : MonoBehaviour {
         {
 			speed = 0;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
             animator.SetInteger("flag", 2);
-            Destroy(gameObject, 1.0f);
+            Destroy(gameObject, 3f);
         }
 	}
 }

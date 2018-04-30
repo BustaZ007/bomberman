@@ -3,9 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
-
-    public bool isReady = false;
+    public static int ContMonsters = 1;
     int level = 0;
+
 
     //void  OnTriggerEnter( Collider col)
     //{
@@ -15,18 +15,12 @@ public class NextLevel : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && isReady) SceneManager.LoadScene("Level2");
+        if (collision.tag == "Player" && ContMonsters == 0)
+            SceneManager.LoadScene("Level2");
     }
 
 
     void UpDate()
     {
-        GameObject[] allGo = FindObjectsOfType<GameObject>();
-        foreach (GameObject go in allGo)
-        {
-            if (go.CompareTag("Monster"))
-                isReady = false;
-            else isReady = true;   
-        }
     }
 }

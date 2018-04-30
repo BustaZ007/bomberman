@@ -10,6 +10,7 @@ public class BallMove : MonoBehaviour {
     Animator animator;
     public GameObject player;
     bool move;
+    public GameObject door;
     int count = 0;
 
 	void Start () 
@@ -31,6 +32,8 @@ public class BallMove : MonoBehaviour {
                 if(count == 4)
                 {
     				transform.Translate(Vector2.down * Time.deltaTime * speed, Space.Self);
+                    transform.position = new Vector2(Mathf.RoundToInt(transform.position.x),
+                                                     transform.position.y);
                     count = 0;
                     move = false;
                 }
@@ -48,6 +51,8 @@ public class BallMove : MonoBehaviour {
                 if (count == 4)
                 {
                     transform.Translate(Vector2.right * Time.deltaTime * speed, Space.Self);
+                    transform.position = new Vector2(transform.position.x,
+                                                     Mathf.RoundToInt(transform.position.y));
                     count = 0;
                     move = true;
                 }
@@ -78,6 +83,7 @@ public class BallMove : MonoBehaviour {
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
             animator.SetInteger("flag", 2);
+            NextLevel.ContMonsters--;
             Destroy(gameObject, 4f);
         }
 	}

@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 50919673065942078}
   - component: {fileID: 61683563781911452}
   - component: {fileID: 222755723889815376}
+  - component: {fileID: 61918279352353358}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Monster
@@ -91,7 +92,32 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.9, y: 0.01}
+  m_EdgeRadius: 0
+--- !u!61 &61918279352353358
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1450496934813316}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.875, y: 1}
+    newSize: {x: 0.875, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.01, y: 0.9}
   m_EdgeRadius: 0
 --- !u!95 &95786107689223928
 Animator:
@@ -123,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.5
   player: {fileID: 1001451609051468, guid: a3e5309dd461e4dcf89e7766fdbf144d, type: 2}
+  door: {fileID: 0}
 --- !u!212 &212256734144267574
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -188,6 +215,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 12, y: 7}
   m_SizeDelta: {x: 0.875, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}

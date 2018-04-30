@@ -11,7 +11,7 @@ public class Bomb : MonoBehaviour {
     public GameObject FireLeftRight;
     public GameObject FireCryLeft;
     public GameObject FireCryRight;
-    int g = 2;
+    public static int g = 2;
 	void Start ()
     {
         Invoke("WakeUp", .5f);
@@ -53,6 +53,12 @@ public class Bomb : MonoBehaviour {
                 Instantiate(fire1, transform.position + vector * i,
                             fire1.transform.rotation);
                 break;
+            }
+            if(col[0].tag == "Door")
+            {
+                Instantiate(fire2, transform.position + vector * i,
+                            fire2.transform.rotation);
+                continue;
             }
             if (col[0].tag == "Block")
                 break;

@@ -11,7 +11,6 @@ public class Bomb : MonoBehaviour {
     public GameObject FireLeftRight;
     public GameObject FireCryLeft;
     public GameObject FireCryRight;
-    public static int g = 2;
 	void Start ()
     {
         Invoke("WakeUp", .5f);
@@ -31,12 +30,12 @@ public class Bomb : MonoBehaviour {
     }
     void MakeFire(GameObject fire1, GameObject fire2, Vector3 vector)
     {
-        for (int i = 1; i < g; i++)
+        for (int i = 1; i < PlayerMove.FireLenght; i++)
         {
 
             Collider2D[] col = Physics2D.OverlapCircleAll(transform.position +
                                                             vector * i, 0.2f);
-            if(col.Length == 0 && i == (g - 1))
+            if(col.Length == 0 && i == (PlayerMove.FireLenght - 1))
             {
                 Instantiate(fire1, transform.position + vector * i,
                             fire1.transform.rotation);
@@ -68,8 +67,4 @@ public class Bomb : MonoBehaviour {
     {
         gameObject.GetComponent<CircleCollider2D>().enabled = true;
     }
-	// Update is called once per frame
-	void Update ()
-    {
-	}
 }

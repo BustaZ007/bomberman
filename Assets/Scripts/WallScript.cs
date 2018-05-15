@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class WallScript : MonoBehaviour
 {
-
     Animator animator;
 	void Start ()
     {
-        animator = this.GetComponent<Animator>();
+        animator = GetComponent<Animator>();
 	}
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Fire")
         {
@@ -18,7 +17,4 @@ public class WallScript : MonoBehaviour
             Destroy(gameObject, 0.85f);
         }
     }
-	void Update ()
-    {
-	}
 }

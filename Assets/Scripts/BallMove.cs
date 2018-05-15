@@ -12,6 +12,7 @@ public class BallMove : MonoBehaviour {
     bool move;
     public GameObject door;
     int count = 0;
+	int kostili = 0;
 
 	void Start () 
     {
@@ -81,9 +82,11 @@ public class BallMove : MonoBehaviour {
         {
 			speed = 0;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+			BoxCollider2D[] myColliders = gameObject.GetComponents<BoxCollider2D>();
+            foreach (BoxCollider2D bc in myColliders)
+				bc.enabled = false;
             animator.SetInteger("flag", 2);
-            NextLevel.ContMonsters--;
+			NextLevel.CountMonsters--;
             Destroy(gameObject, 4f);
         }
 	}

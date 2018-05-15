@@ -16,7 +16,7 @@ public class TimeScript : MonoBehaviour {
     {
         if( time > 0)
         {
-			timeText.text = "TIME:  " + (int)time;
+			timeText.text = "TIME:  " + NextLevel.CountMonsters;
 			time-= Time.deltaTime;
         }
         else

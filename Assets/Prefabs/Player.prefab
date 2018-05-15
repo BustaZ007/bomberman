@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 2
   MaxBombs: 1
-  Bomb: {fileID: 1023255005112890, guid: 3c3678c4b647c4e439caff265cd5e3d1, type: 2}
+  Bombs: {fileID: 1023255005112890, guid: 3c3678c4b647c4e439caff265cd5e3d1, type: 2}
 --- !u!212 &212969280772415706
 SpriteRenderer:
   m_ObjectHideFlags: 1

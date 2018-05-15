@@ -10,6 +10,7 @@ TagManager:
   - Bomb
   - Monster
   - Door
+  - UpFire
   layers:
   - Default
   - TransparentFX

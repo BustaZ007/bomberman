@@ -8,23 +8,27 @@ public class PlayerMove : MonoBehaviour
     public float Speed;
     public int MaxBombs;
     Animator animator;
-    public GameObject Bomb;
+    public GameObject Bombs;
     int count = 1;
-	private void Start()
+	int kostili = 0;
+    public static int FireLenght;
+
+	void Start()
 	{
-        animator = gameObject.GetComponent<Animator>();
+		animator = gameObject.GetComponent<Animator>();
+        FireLenght = 2;
 	}
 	void Update()
 	{
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            if(Bomb && count <= MaxBombs)
+            if(Bombs && count <= MaxBombs)
             {
                 count++;
-                Instantiate(Bomb, new Vector2(Mathf.RoundToInt(transform.position.x),
+                Instantiate(Bombs, new Vector2(Mathf.RoundToInt(transform.position.x),
                                               Mathf.RoundToInt(transform.position.y)),
-                                              Bomb.transform.rotation);
-                Invoke("FectBoom", 2.5f);
+                                              Bombs.transform.rotation);
+                Invoke("FectBoom", 2.0f);
             }
         }
 	}
@@ -42,7 +46,7 @@ public class PlayerMove : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Fire")
         {
@@ -60,7 +64,16 @@ public class PlayerMove : MonoBehaviour
             Invoke("GameOver", 2.0f);
             Invoke("Die", 1.0f);
         }
+		if (collision.tag == "UpFire")
+		{
+			if (kostili == 0)
+			{
+				FireLenght++;
+				kostili++;
+            }
+		}
     }
+
 	void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");

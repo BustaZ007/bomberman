@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class TimeScript : MonoBehaviour {
 
@@ -16,7 +17,7 @@ public class TimeScript : MonoBehaviour {
     {
         if( time > 0)
         {
-			timeText.text = "TIME:  " + NextLevel.CountMonsters;
+			timeText.text = "TIME:  " + (int)time;
 			time-= Time.deltaTime;
         }
         else

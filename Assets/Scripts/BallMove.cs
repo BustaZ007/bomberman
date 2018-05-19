@@ -10,9 +10,7 @@ public class BallMove : MonoBehaviour {
     Animator animator;
     public GameObject player;
     bool move;
-    public GameObject door;
     int count = 0;
-	int kostili = 0;
 
 	void Start () 
     {
@@ -87,7 +85,7 @@ public class BallMove : MonoBehaviour {
 				bc.enabled = false;
             animator.SetInteger("flag", 2);
 			NextLevel.CountMonsters--;
-            Destroy(gameObject, 4f);
+            Destroy(gameObject, 4.01f);
         }
 	}
 }

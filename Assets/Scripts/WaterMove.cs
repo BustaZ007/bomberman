@@ -14,7 +14,7 @@ public class WaterMove : MonoBehaviour
     int count = 0;
 
     void Start()
-    {
+    { 
         animator = gameObject.GetComponent<Animator>();
         move = true;
     }
@@ -66,10 +66,10 @@ public class WaterMove : MonoBehaviour
             transform.Translate(Vector2.down * Time.deltaTime * speed, Space.Self);
     }
 
-    void OnTriggerExit2D(Collider2D collision)
+    void OnTriggerExit2D (Collider2D collision)
     {
         if (collision.tag == "Wall")
-        {
+        { 
             collision.GetComponent<BoxCollider2D>().enabled = true;
         }
     }
@@ -96,8 +96,6 @@ public class WaterMove : MonoBehaviour
             Destroy(gameObject, 4.01f);
         }
         if (collision.tag == "Wall")
-        {
-            collision.GetComponent<BoxCollider2D>().enabled = false;
-        }
+            collision.GetComponent<BoxCollider2D>().enabled = false;        
     }
 }

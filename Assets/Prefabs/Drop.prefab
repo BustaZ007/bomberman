@@ -148,7 +148,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114073210233588754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,7 +160,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2.5
-  player: {fileID: 0}
+  player: {fileID: 1001451609051468, guid: a3e5309dd461e4dcf89e7766fdbf144d, type: 2}
+  scoreValue: 200
 --- !u!212 &212536246149278882
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -175,7 +175,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:

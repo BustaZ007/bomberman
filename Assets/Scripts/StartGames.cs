@@ -9,6 +9,6 @@ public class StartGames : MonoBehaviour
     void Update()
     {
         if (Input.anyKey)
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene("Stage1");
     }
 }

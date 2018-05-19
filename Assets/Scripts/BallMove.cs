@@ -13,14 +13,19 @@ public class BallMove : MonoBehaviour {
     bool move;
     int count = 0;
 	public int scoreValue;
-
+	int minScore;
 	void Start () 
     {
 		score = GameObject.FindWithTag("Canvas").GetComponent<CanvasScript>();
         animator = gameObject.GetComponent<Animator>();
         move = true;
+		UpdateMinScore();
 	}
-
+	void UpdateMinScore()
+	{
+		minScore = 0;
+		Invoke("UpdateMinScore", 0.5f);
+	}
 	void Update () 
     {
         Collider2D[] colLeft = Physics2D.OverlapCircleAll(transform.position - transform.right, 0.487f);
@@ -86,7 +91,11 @@ public class BallMove : MonoBehaviour {
 			BoxCollider2D[] myColliders = gameObject.GetComponents<BoxCollider2D>();
             foreach (BoxCollider2D bc in myColliders)
 				bc.enabled = false;
-			score.AddScore(scoreValue);
+			if(minScore == 0)
+			{
+				score.AddScore(scoreValue);
+				minScore++;        
+            }
             animator.SetInteger("flag", 2);
             Destroy(gameObject, 4.01f);
 

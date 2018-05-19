@@ -13,7 +13,7 @@ public class CanvasScript : MonoBehaviour {
 	{
 		score = 0;
 		UpdateScore();
-		time = 120f;
+		time = 90f;
 	}
 
 	void Update () 

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4912007637388374}
   - component: {fileID: 212777265210212054}
   - component: {fileID: 61750410421277826}
-  - component: {fileID: 114132840206200454}
+  - component: {fileID: 114362131431483094}
   m_Layer: 0
   m_Name: Door
   m_TagString: Door
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1916567142979072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 11, z: 0}
+  m_LocalPosition: {x: 6, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.01, y: 0.01}
   m_EdgeRadius: 0
---- !u!114 &114132840206200454
+--- !u!114 &114362131431483094
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1916567142979072}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ea44dcec353e44baaabfd0c8dbbc54f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c41e12be84cb044d867519b2f8ad78a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212777265210212054
@@ -91,6 +91,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:

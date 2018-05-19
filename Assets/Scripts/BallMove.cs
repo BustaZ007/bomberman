@@ -84,7 +84,6 @@ public class BallMove : MonoBehaviour {
             foreach (BoxCollider2D bc in myColliders)
 				bc.enabled = false;
             animator.SetInteger("flag", 2);
-			NextLevel.CountMonsters--;
             Destroy(gameObject, 4.01f);
         }
 	}

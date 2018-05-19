@@ -24,7 +24,8 @@ GameObject:
   - component: {fileID: 50627397723040374}
   - component: {fileID: 95114140155932392}
   - component: {fileID: 212536246149278882}
-  - component: {fileID: 114299613755450056}
+  - component: {fileID: 114073210233588754}
+  - component: {fileID: 61889490835680498}
   m_Layer: 0
   m_Name: Drop
   m_TagString: Monster
@@ -64,7 +65,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &58613684697802054
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -80,6 +81,31 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49
+--- !u!61 &61889490835680498
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1618316995232476}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.16, y: 0.16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.01, y: 0.9}
+  m_EdgeRadius: 0
 --- !u!61 &61900902805879654
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -103,7 +129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 0.9, y: 0.01}
   m_EdgeRadius: 0
 --- !u!95 &95114140155932392
 Animator:
@@ -122,7 +148,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114299613755450056
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114073210233588754
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -130,11 +157,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1618316995232476}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 636beb4ed60206549bffe096e13e727e, type: 3}
+  m_Script: {fileID: 11500000, guid: cbb6f88fdb3ec4e118ffe8770499384e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  player: {fileID: 1001451609051468, guid: a3e5309dd461e4dcf89e7766fdbf144d, type: 2}
+  speed: 2.5
+  player: {fileID: 0}
 --- !u!212 &212536246149278882
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -148,6 +175,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:

@@ -11,7 +11,7 @@ public class TimeScript : MonoBehaviour {
 	void Awake () 
     {
         timeText = GetComponent<Text>();
-        time = 90f;
+        time = 120f;
 	}
 	void Update ()
     {

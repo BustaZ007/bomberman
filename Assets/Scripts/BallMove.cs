@@ -9,11 +9,14 @@ public class BallMove : MonoBehaviour {
     float speed;
     Animator animator;
     public GameObject player;
+	CanvasScript score;
     bool move;
     int count = 0;
+	public int scoreValue;
 
 	void Start () 
     {
+		score = GameObject.FindWithTag("Canvas").GetComponent<CanvasScript>();
         animator = gameObject.GetComponent<Animator>();
         move = true;
 	}
@@ -83,8 +86,10 @@ public class BallMove : MonoBehaviour {
 			BoxCollider2D[] myColliders = gameObject.GetComponents<BoxCollider2D>();
             foreach (BoxCollider2D bc in myColliders)
 				bc.enabled = false;
+			score.AddScore(scoreValue);
             animator.SetInteger("flag", 2);
             Destroy(gameObject, 4.01f);
+
         }
 	}
 }

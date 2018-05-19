@@ -12,6 +12,7 @@ TagManager:
   - Door
   - UpFire
   - UpSpeed
+  - Canvas
   layers:
   - Default
   - TransparentFX

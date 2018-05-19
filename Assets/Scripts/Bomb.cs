@@ -34,6 +34,7 @@ public class Bomb : MonoBehaviour {
         MakeFire(FireCryRight, FireLeftRight, Vector3.right);
         Destroy(gameObject, 1.2f);
     }
+
     void MakeFire(GameObject fire1, GameObject fire2, Vector3 vector)
     {
         for (int i = 1; i < PlayerMove.FireLenght; i++)

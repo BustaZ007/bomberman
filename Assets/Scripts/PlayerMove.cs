@@ -67,6 +67,7 @@ public class PlayerMove : MonoBehaviour
         }
         if (collision.tag == "Monster")
         {
+			Audio.PlayOneShot(DieSound, 0.7f);
 			Speed = 0;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             animator.SetBool("Die", true);

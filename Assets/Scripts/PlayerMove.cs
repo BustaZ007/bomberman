@@ -10,13 +10,21 @@ public class PlayerMove : MonoBehaviour
     Animator animator;
     public GameObject Bombs;
     int count = 1;
-	int kostili = 0;
+	Dictionary<string, int> Items = new Dictionary<string, int>();
     public static int FireLenght;
+	AudioSource Audio;
+	public AudioClip UpFireSound;
+	public AudioClip UpSpeedSound;
+	public AudioClip DieSound;
 
 	void Start()
 	{
+		Audio = GetComponent<AudioSource>();
 		animator = gameObject.GetComponent<Animator>();
         FireLenght = 2;
+		Items.Add("UpFire", 0);
+		Items.Add("UpSpeed", 0);
+		Items.Add("UpBombCount", 0);
 	}
 	void Update()
 	{
@@ -50,7 +58,8 @@ public class PlayerMove : MonoBehaviour
     {
         if (collision.tag == "Fire")
         {
-            Speed = 0;
+			Audio.PlayOneShot(DieSound, 0.7f);
+			Speed = 0;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             animator.SetBool("Die", true);
 			Invoke("GameOver", 2.0f);
@@ -66,14 +75,23 @@ public class PlayerMove : MonoBehaviour
         }
 		if (collision.tag == "UpFire")
 		{
-			if (kostili == 0)
+			if(Items["UpFire"] == 0)
 			{
 				FireLenght++;
-				kostili++;
-            }
+                Audio.PlayOneShot(UpFireSound);
+				Items["UpFire"]++;
+			}
 		}
+		if (collision.tag == "UpSpeed")
+        {
+			if (Items["UpSpeed"] == 0)
+            {
+				Speed++;
+				Audio.PlayOneShot(UpSpeedSound);
+                Items["UpSpeed"]++;
+            }
+        }
     }
-
 	void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
@@ -90,7 +108,9 @@ public class PlayerMove : MonoBehaviour
             animator.SetInteger("DirectionX", 1);
         }
         else
-            animator.SetInteger("DirectionX", 0);
+		{
+			animator.SetInteger("DirectionX", 0);
+        }
         
         if (moveVertical < 0)
         {
@@ -103,6 +123,8 @@ public class PlayerMove : MonoBehaviour
             animator.SetInteger("DirectionY", 1);
         }
         else
-            animator.SetInteger("DirectionY", 0);
+		{
+			animator.SetInteger("DirectionY", 0);
+        }
     }
 }

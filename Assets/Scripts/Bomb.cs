@@ -11,13 +11,19 @@ public class Bomb : MonoBehaviour {
     public GameObject FireLeftRight;
     public GameObject FireCryLeft;
     public GameObject FireCryRight;
+	AudioSource Audio;
+	public AudioClip MakeBomb;
+	public AudioClip BOOM;
 	void Start ()
     {
+		Audio = GetComponent<AudioSource>();
+		Audio.PlayOneShot(MakeBomb);
         Invoke("WakeUp", .5f);
         Invoke("Boom", 2.0f);
 	}
     void Boom()
     {
+		Audio.PlayOneShot(BOOM,0.7f);
         Instantiate(FireCenter,new Vector2(transform.position.x, transform.position.y),
                     FireCenter.transform.rotation);
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
@@ -26,7 +32,7 @@ public class Bomb : MonoBehaviour {
         MakeFire(FireCryDown, FireUpDown, Vector3.down);
         MakeFire(FireCryLeft, FireLeftRight, Vector3.left);
         MakeFire(FireCryRight, FireLeftRight, Vector3.right);
-        Destroy(gameObject, 0.3f);
+        Destroy(gameObject, 1.2f);
     }
     void MakeFire(GameObject fire1, GameObject fire2, Vector3 vector)
     {

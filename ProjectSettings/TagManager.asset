@@ -11,6 +11,7 @@ TagManager:
   - Monster
   - Door
   - UpFire
+  - UpSpeed
   layers:
   - Default
   - TransparentFX

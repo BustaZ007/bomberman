@@ -12,6 +12,7 @@ namespace DoorScript
 		public AudioClip FinishSound;
 		int musicFlag;
 		public GameObject monster;
+		int Flag = 2;
 		void Start()
 		{
 			Audio = GetComponent<AudioSource>();
@@ -40,13 +41,14 @@ namespace DoorScript
                 Audio.Play();
 				Invoke("LoadScene", 4.0f);
             }
-			//if(collision.tag == "Fire" && collision.tag != "Wall")
-			//{
-			//	for (int i = 0; i < 2; i++)
-			//		Invoke("MakeMonster", i + 2f);
-			//}
+			if(collision.tag == "Fire")
+			{
+				if (Flag <= 1)
+					Invoke("MakeMonster", 1f);
+				else
+					Flag--;
+			}
         }
-        //Доделать, чтобы в случаех подрыва двери появлялись монстры
 		void MakeMonster()
 		{
 			Instantiate(monster, new Vector2(transform.position.x, transform.position.y),

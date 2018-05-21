@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50761537432136504}
   - component: {fileID: 95836717925708876}
   - component: {fileID: 114196150865483824}
+  - component: {fileID: 58330029564895428}
   m_Layer: 0
   m_Name: Water
   m_TagString: Monster
@@ -79,6 +80,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49
+--- !u!58 &58330029564895428
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1570335046030282}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.49
 --- !u!95 &95836717925708876
 Animator:
   serializedVersion: 3
@@ -96,7 +112,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114196150865483824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -123,7 +138,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:

@@ -69,9 +69,7 @@ public class WaterMove : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Wall")
-        {
             collision.GetComponent<BoxCollider2D>().enabled = true;
-        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -89,15 +87,13 @@ public class WaterMove : MonoBehaviour
         {
             speed = 0;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            BoxCollider2D[] myColliders = gameObject.GetComponents<BoxCollider2D>();
-            foreach (BoxCollider2D bc in myColliders)
+            CircleCollider2D[] myColliders = gameObject.GetComponents<CircleCollider2D>();
+            foreach (CircleCollider2D bc in myColliders)
                 bc.enabled = false;
             animator.SetInteger("flag", 2);
             Destroy(gameObject, 4.01f);
         }
         if (collision.tag == "Wall")
-        {
             collision.GetComponent<BoxCollider2D>().enabled = false;
-        }
     }
 }

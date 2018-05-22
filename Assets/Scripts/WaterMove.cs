@@ -11,14 +11,23 @@ public class WaterMove : MonoBehaviour
     Animator animator;
     public GameObject player;
     bool move;
-    int count = 0;
+    int count = 0;   
+    public int scoreValue;
+    int minScore;
+    CanvasScript score;
 
     void Start()
     {
+		score = GameObject.FindWithTag("Canvas").GetComponent<CanvasScript>();
         animator = gameObject.GetComponent<Animator>();
         move = true;
+        UpdateMinScore();
     }
-
+	void UpdateMinScore()
+    {
+        minScore = 0;
+        Invoke("UpdateMinScore", 0.5f);
+    }
     void Update()
     {
         Collider2D[] colLeft = Physics2D.OverlapCircleAll(transform.position - transform.right, 0.487f);
@@ -89,7 +98,12 @@ public class WaterMove : MonoBehaviour
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             CircleCollider2D[] myColliders = gameObject.GetComponents<CircleCollider2D>();
             foreach (CircleCollider2D bc in myColliders)
-                bc.enabled = false;
+                bc.enabled = false;         
+            if (minScore == 0)
+            {
+                score.AddScore(scoreValue);
+                minScore++;
+            }
             animator.SetInteger("flag", 2);
             Destroy(gameObject, 4.01f);
         }

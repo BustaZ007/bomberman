@@ -22,8 +22,6 @@ GameObject:
   - component: {fileID: 212216860002907300}
   - component: {fileID: 58300473020424416}
   - component: {fileID: 50761537432136504}
-  - component: {fileID: 61662937422700810}
-  - component: {fileID: 61073603457418738}
   - component: {fileID: 95836717925708876}
   - component: {fileID: 114196150865483824}
   - component: {fileID: 58330029564895428}
@@ -41,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1570335046030282}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 8, z: -0.1058918}
+  m_LocalPosition: {x: 1, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -106,7 +104,7 @@ Animator:
   m_GameObject: {fileID: 1570335046030282}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6761ab9b52abeb6499f16ee75792de80, type: 2}
+  m_Controller: {fileID: 9100000, guid: d32621e5cf5924cfd9eb06caf502d8a4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -127,6 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   player: {fileID: 0}
+  scoreValue: 100
 --- !u!212 &212216860002907300
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -160,7 +159,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b9c42c59f9d3446c1a4341f5b369217c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
